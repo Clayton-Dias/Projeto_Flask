@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {#Carregendo o CSS Principal#}
+    <link rel="stylesheet" href="/static/css/template.css">
+    {#Carrega o CSS adicional, caso exista#}
+    {% if page.css %}
+    <link rel="stylesheet" href="/static/css/{{page.css}}">
+    {% endif %}
+
+
+    {#Logo do Site#}
+    <link rel="shortcut icon" href="{{page.site.LOGO}}" type="image/x-icon">
+
+    {% if page.title != "" %}
+    <title>{{page.site.NAME}} - {{page.title}}</title>
+    {% else %}
+    <title>{{page.site.NAME}}</title>
+    {% endif %}
+
+</head>
+<body>
+    
+   <div id="wrap">
+
+        {#Cabeçalho#}
+        <header>
+            <a href="/" title="Ir para a página inicial">
+                <img src="{{page.site.LOGO}}" alt="Logo do Site" class="Logo">
+
+                <h2><small>{{page.site.NAME}}</small></h2>
+            </a>
+        </header>
+
+        <nav></nav>
+
+        <main>
+
+            <article>{% block article %}{% endblock %}</article>
+
+            <aside>{% block aside %}{% endblock %}</aside>
+
+        </main>
+
+        <footer>{{page.site.CR|safe}}</footer>
+
+   </div>
+
+</body>
+</html>
