@@ -1,3 +1,6 @@
+Claro! Aqui está o README em formato Markdown:
+
+```markdown
 # Galeria Awesome
 
 Bem-vindo à Galeria Awesome! Este é um projeto em Flask que exibe uma galeria de fotos dinâmica e responsiva.
