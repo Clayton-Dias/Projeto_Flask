@@ -1,1 +1,39 @@
 {% extends "__template.html" %}
+
+{% block article %}
+
+<h2>Faça contato</h2>
+<p>Preencha o formulários abaixo para realizar contato com a nossa equipe.</p>
+<p class="atencao"><small><strong>Todos os campos devem ser preenchidos</strong></small></p>
+
+<form action="#" method="post">
+
+    <p>
+        <label for="fieldName">Seu nome:</label>
+        <input type="text" name="name" id="fieldName" required minlength="3">
+    </p>
+
+    <p>
+        <label for="fieldEmail">Seu e-mail:</label>
+        <input type="email" name="email" id="fieldEmail" required>
+    </p>
+
+    <p>
+        <label for="fieldSubject">Assunto:</label>
+        <input type="text" name="subject" id="fieldSubject" required minlength="5">
+    </p>
+
+    <p>
+        <label for="fieldMessage">Mensagem:</label>
+        <textarea name="message" id="fieldMessage" required minlength="5"></textarea>
+    </p>
+
+    <p>
+        <button type="submit">Enviar</button>
+        <small>&larr; Clique somente uma vez</small>
+    </p>
+
+</form>
+
+
+{% endblock %}

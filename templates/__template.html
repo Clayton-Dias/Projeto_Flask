@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {#Carregendo o CSS Principal#}
-    <link rel="stylesheet" href="/static/css/template.css">
+    <link rel="stylesheet" href="{{page.site.css}}">
     {#Carrega o CSS adicional, caso exista#}
     {% if page.css %}
     <link rel="stylesheet" href="/static/css/{{page.css}}">
@@ -22,9 +23,10 @@
     {% endif %}
 
 </head>
+
 <body>
-    
-   <div id="wrap">
+
+    <div id="wrap">
 
         {#Cabeçalho#}
         <header>
@@ -33,9 +35,23 @@
 
                 <h2><small>{{page.site.NAME}}</small></h2>
             </a>
+            {{page.site.toogle|safe}}
         </header>
 
-        <nav></nav>
+        {#Menu de Navegação#}
+        <nav>
+            {#Início | Home | Página Inicial#}
+            {{page.site.menu.home|safe}}
+
+            {#Galeria#}
+            {{page.site.menu.galeria|safe}}            
+            
+            {#Contatos#}
+            {{page.site.menu.contato|safe}}
+
+            {#Sobre#}
+            {{page.site.menu.sobre|safe}}
+        </nav>
 
         <main>
 
@@ -45,9 +61,59 @@
 
         </main>
 
-        <footer>{{page.site.CR|safe}}</footer>
+        <footer>
+            <div>
+                <div> 
+                    {{page.site.CR|safe}}
+                </div>
+                <hr>
+                {#Redes Sociais e Links Úteis#}
+                <div class="links_uteis" >
+                    {#Redes Sociais do site#}
+                    <nav title="Nossas Redes Sociais">
+                        <h4>Redes Sociais</h4>
+                        {# Facebook #}
+                        {{page.site.redesSociais.facebook|safe}}
+                        
+                        {# X (Twitter) #}
+                        {{page.site.redesSociais.x|safe}}
+                        
+                        {# Github #}
+                        {{page.site.redesSociais.github|safe}}
+                        
+                    </nav>           
+                                
+                     {#Links úteis do site#}
+                    <nav title="Links Ùteis do site">
+                        <h4>Links Úteis</h4>
 
-   </div>
+                        {#Políticas de Privacidade#}
+                        {{page.site.links.politica|safe}}
+                        
+                        {#Contatos#}
+                        {#Usando o do menu pois direcionar para a página de contatos(contacts.html)#}
+                        {{page.site.menu.contato|safe}}
+                        
+                        {#Sobre#}
+                        {#Usando o do menu pois direcionar para a página sonre(about.html)#}
+                        {{page.site.menu.sobre|safe}}
+                        
+                    </nav>
+                </div>
+            </div>
+
+        </footer>
+
+        <div id="cortina"></div>
+    </div>
+
+    <!--Javascript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{page.site.js}}"></script>
+    {%if page.js%}
+    <script src="/static/js/{{page.js}}"></script>
+    {% endif %}
 
 </body>
+
 </html>
